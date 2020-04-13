@@ -81,7 +81,7 @@ public class CarDaoImpl implements ICarDao {
   public List<Car> search(String searchText) {
     LOGGER.info("Searching Cars for Search Text: {} ", searchText);
     return jdbcTemplate.query("SELECT id, name, manufacture_name, model, manufacturing_year, color "
-            + " FROM cars.cars where name=? or manufacture_name=? or model=? or manufacturing_year=? or color=?;", (resultSet, i) ->
+            + " FROM cars where name=? or manufacture_name=? or model=? or manufacturing_year=? or color=?;", (resultSet, i) ->
             Car.builder()
                 .id(resultSet.getLong("id"))
                 .name(resultSet.getString("name"))
